@@ -9,13 +9,11 @@
 </head>
 <body>
 <div class="container">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Nueva Orden</button>
+  <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target=".bd-example-modal-lg">Nueva Orden</button>
 </div>
 
 
 <!--Modal Menu-->
-
-
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -24,9 +22,9 @@
         <div class="row">
             <div class="col-12">
                 
-                    <div class="card-body">
-                        <div class="row" id="menu">
-                        </div>
+              <div class="card-body">
+                <div class="row" id="menu">
+              </div>
                    
             </div>
         </div>
@@ -52,7 +50,7 @@
         document.getElementById("menu").innerHTML ="";
         var MenuD='';
        for(i=0; i < data.length;i++){
-        var tarjeta = '<div class="col-sm-4"><div class="card"><div class="card-body"><div><div><h6 class="m-0"># {ID}</h6></div><h6 class="card-title m-0">{NOMBRE}</h6><p class="m-0">{DESCRIPCION}</p><div class="datos"><div><p class="mb-0">$ {COSTO}</p><button type="button" class="btn btn-success btn-sm">Agregar</button></div></div></div></div></div></div>';
+        var tarjeta = '<div class="col-sm-4"><div class="card"><div class="card-body"><div><span class="badge badge-primary"><h6 class="m-0"># {ID}</h6></span><div></div><h6 class="card-title m-0">{NOMBRE}</h6><p class="m-0">{DESCRIPCION}</p><div class="datos"><div><p class="mb-0">$ {COSTO}</p><button type="button" class="btn btn-success btn-sm">+</button></div></div></div></div></div></div>';
         tarjeta = tarjeta.replace("{ID}",data[i].idMenu);
         tarjeta = tarjeta.replace("{NOMBRE}",data[i].nombre);
         tarjeta = tarjeta.replace("{DESCRIPCION}",data[i].descripcion);
@@ -63,8 +61,6 @@
        document.getElementById("menu").innerHTML=MenuD;
       })
   }
-  
-  
 </script>
 </body>
 </html>
