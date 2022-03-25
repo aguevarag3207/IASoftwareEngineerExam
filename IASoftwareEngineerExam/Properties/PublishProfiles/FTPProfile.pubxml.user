@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Este archivo se usa en el proceso de publicación y empaquetado del proyecto web. Para personalizar el comportamiento de este proceso,
+edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 para obtener más información. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzcSF/172pEW34jArPYQfkgAAAAACAAAAAAAQZgAAAAEAACAAAADgakphh//uX8mejcI5i6rAN0mVbHOlF/U95PLdL0rDNQAAAAAOgAAAAAIAACAAAAAzCI6o5RqWbU05eeND2ugz43O1qqDBOD5Cyw5k0BkMYiAAAAAPBNxnpSH2Aj0TGF/kIoU8PDp8ijz3u5xdoDpy2Yw+u0AAAADHqWJNgkbTt/1vmNcYMSGzqszG+SQykwL8ZMhJDtzPYh5Qj4/pyHw8pS5uczwsq9M0TGtFs6NoqkXNHEBUlEA8</EncryptedPassword>
+    <_PublishTargetUrl>ftp://198.37.116.29/www.devaggpracticas.somee.com</_PublishTargetUrl>
+    <History>True|2022-03-25T11:32:49.5299568Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>03/24/2022 01:31:49</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>03/24/2022 01:31:49</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.deps.json">
+      <publishTime>03/25/2022 05:30:34</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.dll">
+      <publishTime>03/25/2022 05:30:33</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.exe">
+      <publishTime>03/25/2022 05:30:33</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.pdb">
+      <publishTime>03/25/2022 05:30:33</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.runtimeconfig.json">
+      <publishTime>03/25/2022 04:51:31</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.Views.dll">
+      <publishTime>03/25/2022 05:30:34</publishTime>
+    </File>
+    <File Include="IASoftwareEngineerExam.Views.pdb">
+      <publishTime>03/25/2022 05:30:34</publishTime>
+    </File>
+    <File Include="Models/Orden.json">
+      <publishTime>03/25/2022 04:26:11</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/17/2021 14:03:36</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>03/25/2022 05:30:39</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.js.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/bootstrap/LICENSE">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>03/24/2022 01:31:50</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
