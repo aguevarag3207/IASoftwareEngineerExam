@@ -9,20 +9,31 @@
 </head>
 <body>
 <div class="container">
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-              Menu
-            </div>
-            <div class="card-body">
-                <div class="row" id="menu">
-                </div>
-            </div>
-          </div>
-    </div>
-
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Nueva Orden</button>
 </div>
+
+
+<!--Modal Menu-->
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      
+      <div class="container p-3">
+        <div class="row">
+            <div class="col-12">
+                
+                    <div class="card-body">
+                        <div class="row" id="menu">
+                        </div>
+                   
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -39,13 +50,9 @@
       return response.json();
       }).then(function(data){
         document.getElementById("menu").innerHTML ="";
-        
         var MenuD='';
-        console.log(data);
        for(i=0; i < data.length;i++){
-        var tarjeta = '<div class="col-4"><div class="card"><div class="card-body"><div><div><h6># {ID}</h6></div><h5 class="card-title">{NOMBRE}</h5><p>{DESCRIPCION}</p><div class="datos"><div><p>Precio</p><p>${COSTO}</p></div></div></div></div></div></div>';
-        console.log(data[i].idMenu);
-        console.log(data[i].nombre);
+        var tarjeta = '<div class="col-sm-4"><div class="card"><div class="card-body"><div><div><h6 class="m-0"># {ID}</h6></div><h6 class="card-title m-0">{NOMBRE}</h6><p class="m-0">{DESCRIPCION}</p><div class="datos"><div><p class="mb-0">$ {COSTO}</p><button type="button" class="btn btn-success btn-sm">Agregar</button></div></div></div></div></div></div>';
         tarjeta = tarjeta.replace("{ID}",data[i].idMenu);
         tarjeta = tarjeta.replace("{NOMBRE}",data[i].nombre);
         tarjeta = tarjeta.replace("{DESCRIPCION}",data[i].descripcion);
@@ -56,7 +63,7 @@
        document.getElementById("menu").innerHTML=MenuD;
       })
   }
-
+  
   
 </script>
 </body>
