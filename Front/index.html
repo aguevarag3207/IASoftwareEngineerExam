@@ -4,64 +4,211 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <title>Examen Alejandro G</title>
 </head>
-<body>
-<div class="container">
-  <button type="button" class="btn btn-primary m-3" data-toggle="modal" data-target=".bd-example-modal-lg">Nueva Orden</button>
+<body onload="load()">
+
+<div class="container-fluid">
+  <div class="row">
+    <!--MENU-->
+    <div class="col-sm-6">
+
+      <div class="card-body">
+        <div class="row" id="menu">
+        </div>  
+      </div>
+
+    </div>
+    <!--FIN MENU-->
+    <!--TABLA-->
+    <div class="col-sm-6 pt-4">
+
+        <div class="card mr-4">
+          <div class="card-body">
+            
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Total</th>
+                </tr>
+              </thead>
+              <tbody id ="rOrden" style="font-size: 10px;">
+                
+              </tbody>
+            </table>
+            <!--FIN TABLA-->
+
+          </div>
+          <!--Total-->
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+              <div class="input-group sm-2">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">$</div>
+                </div>
+                <input type="text" class="form-control" id="totalorden" disabled>
+              </div>
+            </div>
+          </div>
+          <!--Fin Total-->
+        </div>
+
+        <!--Generar Orden-->
+        <div class="row mt-3">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-4"><button type="button" class="btn btn-success">Generar Orden</button></div>
+          <div class="col-sm-4"><button type="button" class="btn btn-danger">Cancelar</button></div>
+          <div class="col-sm-2"></div>
+        </div>
+        <!--Fin Generar Orden-->
+    </div>
+    
+  </div>
 </div>
 
 
-<!--Modal Menu-->
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+<!--Modal Agregar/Cantidad-->
+<div class="modal fade agregarProducto" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
     <div class="modal-content">
       
-      <div class="container p-3">
-        <div class="row">
-            <div class="col-12">
-                
-              <div class="card-body">
-                <div class="row" id="menu">
-              </div>
-                   
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Prodúcto</label>
+              <input type="text" class="form-control" id="txProducto" disabled="true">
             </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput2">Cantidad</label>
+              <input type="text" class="form-control" id="txCantidad">
+            </div>
+          </form>
+          <button type="button" class="btn btn-success btn-sm btn-block" onclick="btnAceptarCantidad()">Aceptar</button>
         </div>
       </div>
 
     </div>
   </div>
 </div>
+<!--Fin Modal Agregar/Cantidad-->
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 <script>
+
+//Variables
   var urlOrden="http://devaggpracticas.somee.com/api/Orden";
   var urlMenu="http://devaggpracticas.somee.com/api/Menu/";
+  var registro = "";
+  var totalCompra =0.00;
+  var obj_Menu;
+  var menuArray = new Array();
+//Fin Variables
+  
+  function load(){
   GetMenu();
+  $("#totalorden").val(Math.round(totalCompra).toFixed(2));
+  };
 
-  function GetMenu()
-  {
+  function GetMenu(){
       fetch(urlMenu).then(function(response){
       return response.json();
       }).then(function(data){
+
         document.getElementById("menu").innerHTML ="";
-        var MenuD='';
+        var MenuD = '';
+
+        
        for(i=0; i < data.length;i++){
-        var tarjeta = '<div class="col-sm-4"><div class="card"><div class="card-body"><div><span class="badge badge-primary"><h6 class="m-0"># {ID}</h6></span><div></div><h6 class="card-title m-0">{NOMBRE}</h6><p class="m-0">{DESCRIPCION}</p><div class="datos"><div><p class="mb-0">$ {COSTO}</p><button type="button" class="btn btn-success btn-sm">+</button></div></div></div></div></div></div>';
-        tarjeta = tarjeta.replace("{ID}",data[i].idMenu);
-        tarjeta = tarjeta.replace("{NOMBRE}",data[i].nombre);
-        tarjeta = tarjeta.replace("{DESCRIPCION}",data[i].descripcion);
+        
+        var tarjeta = '<div class="col-6 col-md-4 mb-4"><div class="card"><div class="card-body"><div><span class="badge badge-primary"><h6 class="m-0"># <label id="id_{ID}">{ID}</label></h6></span><div></div><h6 class="card-title m-0"><label id="nom_{ID}">{NOMBRE}</label></h6><p class="m-0">{DESCRIPCION}</p><div class="datos"><div><p class="mb-0">$ <label id="cost_{ID}">{COSTO}</label></p><button type="button" id="{ID}" class="btn btn-success btn-sm" data-toggle="modal" data-target=".agregarProducto" onclick="obtieneIDMenu(this)">+</button></div></div></div></div></div></div>';
+        tarjeta = tarjeta.replace(/{ID}/g,data[i].idMenu);
+        tarjeta = tarjeta.replace(/{NOMBRE}/g,data[i].nombre);
+        tarjeta = tarjeta.replace(/{DESCRIPCION}/g,data[i].descripcion);
         const costo = data[i].precio;
-        tarjeta = tarjeta.replace("{COSTO}",costo.toFixed(2));
+        tarjeta = tarjeta.replace(/{COSTO}/g,costo.toFixed(2));
+
+        var mOrden = new Object();
+        mOrden.ID = data[i].idMenu;
+        mOrden.Nombre = data[i].nombre;
+        mOrden.Costo = costo.toFixed(2);
+        menuArray.push(mOrden);
+
         MenuD += tarjeta;
        }
+
        document.getElementById("menu").innerHTML=MenuD;
       })
   }
+  
+  // Eventos Click
+  function btnAceptarCantidad() {
+
+    if(isNaN($("#txCantidad").val()))
+    {
+
+      alert("¡El valor ingresado no es numerico!");
+    }
+    else{
+      if($("#txCantidad").val() != "")
+      {
+
+    $('.agregarProducto').modal('hide');
+    
+    var cantidadTx = $("#txCantidad").val();
+    var costoTx = obj_Menu.Costo;
+    var totalTx = cantidadTx * costoTx;
+    totalCompra +=totalTx;
+    var tr="<tr>"+
+    "<th scope='row'>{NUMERO}</th>"+
+    "<td>{NOMBRE}</td>"+
+    "<td style='text-align: center';>{CANTIDAD}</td>"+
+    "<td style='text-align: right'>$ {PRECIO}</td>"+
+    "<td style='text-align: right'>$ {TOTAL}</td>"+
+    "</tr>";
+
+    tr = tr.replace(/{NUMERO}/g,obj_Menu.ID);
+    tr = tr.replace(/{NOMBRE}/g,obj_Menu.Nombre);
+    tr = tr.replace(/{CANTIDAD}/g,cantidadTx);
+    tr = tr.replace(/{PRECIO}/g,obj_Menu.Costo);
+    tr = tr.replace(/{TOTAL}/g,Math.round(totalTx).toFixed(2));
+    
+    registro += tr; 
+    
+    document.getElementById("rOrden").innerHTML=registro;
+    $("#totalorden").val(Math.round(totalCompra).toFixed(2));
+      }
+      else{
+        alert("¡Cantidad Req!");
+      }
+  }
+  }
+  
+  function obtieneIDMenu(idOrden){
+
+    var id = idOrden.id;
+    obj_Menu = menuArray.find(a => a.ID == id);
+    
+    //Limpiar
+    $("#txProducto").val("");
+    $("#txCantidad").val("");
+
+    
+    //Asignar valores
+    $("#txProducto").val(obj_Menu.Nombre);
+    $("#txCantidad").val("").focus();
+  }
+
 </script>
 </body>
 </html>
-
